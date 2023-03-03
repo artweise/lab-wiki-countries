@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import CountriesList from './components/CountriesList/CountriesList';
 import countriesData from './countries.json';
-// import CountryDetails from './components/CountryDetails';
+import CountryDetails from './components/CountryDetails';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 
@@ -13,12 +13,19 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route
-          path="/countries"
+          path="/"
           element={<CountriesList countries={countriesData} />}
         />
-        {/* <CountriesList /> */}
+
+        <Route
+          path="/country/:countryId"
+          element={<CountryDetails country={countriesData} />}
+        />
+        
+
 
         {/* <Route path="*" element={<ErrorPage />} /> */}
+
       </Routes>
     </div>
   );

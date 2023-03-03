@@ -15,7 +15,7 @@ const CountriesList = ({ countries }) => {
           return (
             <Link
               key={country.alpha3Code}
-              to={`/countries/${country.alpha3Code}`}
+              to={`/country/${country.alpha3Code}`}
               className="country-link"
             >
               <img
