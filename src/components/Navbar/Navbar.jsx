@@ -8,6 +8,7 @@ const Navbar = () => {
         <NavLink to="/" className="navbar-brand fs-2 fw-lighter">
           LAB - WikiCountries
         </NavLink>
+        
       </div>
     </nav>
   );

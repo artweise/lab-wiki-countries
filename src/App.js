@@ -1,12 +1,25 @@
+import { useState } from 'react';
 import Navbar from './components/Navbar/Navbar';
-// import countriesData from './countries.json';
+import CountriesList from './components/CountriesList/CountriesList';
+import countriesData from './countries.json';
+// import CountryDetails from './components/CountryDetails';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 
 const App = () => {
-  // const [countries, setCountries] = useState(countriesData);
+  const [countries, setCountries] = useState(countriesData);
   return (
     <div className="App">
       <Navbar />
+      <Routes>
+        <Route
+          path="/countries"
+          element={<CountriesList countries={countriesData} />}
+        />
+        {/* <CountriesList /> */}
+
+        {/* <Route path="*" element={<ErrorPage />} /> */}
+      </Routes>
     </div>
   );
 };
