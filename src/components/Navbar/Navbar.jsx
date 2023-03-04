@@ -5,10 +5,9 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="navbar-inner-ctn">
-        <NavLink to="/" className="navbar-brand fs-2 fw-lighter">
+        <NavLink to="/" className="navbar-brand fs-2 fw-light">
           LAB - WikiCountries
         </NavLink>
-        
       </div>
     </nav>
   );

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useParams, Link, NavLink } from 'react-router-dom';
+import './style.css';
 
 const CountryDetails = ({ country }) => {
   const { countryId } = useParams();
@@ -11,8 +12,11 @@ const CountryDetails = ({ country }) => {
   // Child routes inherit all params from their parent routes.
 
   const selectCountry = country.find((countryObj) => {
+    //--> we can put it in useEffect, but them we need a state in this useEffect
     return countryObj.alpha3Code === countryId;
   });
+
+  // then after we need use conditional
 
   const flagOfCountry = `https://flagpedia.net/data/flags/icon/72x54/${selectCountry.alpha2Code.toLowerCase()}.png`;
 
@@ -21,19 +25,19 @@ const CountryDetails = ({ country }) => {
   });
 
   return (
-    <div className="CountryCard-container d-flex flex-column p-4 align-items-center">
+    <div className="CountryCard-container d-flex flex-column align-items-center m-5 p-5">
       <img src={flagOfCountry} alt={selectCountry.name.official} width={150} />
-      <h1 className="mt-3">{selectCountry.name.official}</h1>
-      <div className="d-flex justify-content-between">
-        <h5 className="d-inline-flex p-2">Capital</h5>
-        <h5 className="d-inline-flex p-2">{selectCountry.capital}</h5>
+      <h1 className="fw-light mt-3">{selectCountry.name.official}</h1>
+      <div className="d-flex align-items-start">
+        <h5 className="d-inline-flex p-2 fw-light">Capital</h5>
+        <h5 className="d-inline-flex p-2 fw-light">{selectCountry.capital}</h5>
       </div>
       <div className="d-flex">
-        <h5 className="d-inline-flex p-2">Area</h5>
-        <h5 className="d-inline-flex p-2">{selectCountry.area} km²</h5>
+        <h5 className="d-inline-flex p-2 fw-light">Area</h5>
+        <h5 className="d-inline-flex p-2 fw-light">{selectCountry.area} km²</h5>
       </div>
-      <div className="d-flex">
-        <h5 className="d-inline-flex p-2">Borders</h5>
+      <div className="borders-ctn d-flex">
+        <h5 className="d-inline-flex p-2 fw-light">Borders</h5>
         <h5 className="p-2">
           {findBorders.map((country) => {
             return (
@@ -42,7 +46,7 @@ const CountryDetails = ({ country }) => {
                 to={`/${country.alpha3Code}`}
                 className="country-link"
               >
-                <h5 className="fw-lighter">{country.name.official}</h5>
+                <h5 className="fw-light">{country.name.official}</h5>
               </Link>
             );
           })}
