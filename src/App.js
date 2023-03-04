@@ -12,20 +12,14 @@ const App = () => {
     <div className="App">
       <Navbar />
       <Routes>
-        <Route
-          path="/"
-          element={<CountriesList countries={countriesData} />}
-        />
+        <Route path="/" element={<CountriesList countries={countriesData} />} />
 
         <Route
-          path="/country/:countryId"
+          path="/:countryId"
           element={<CountryDetails country={countriesData} />}
         />
-        
-
 
         {/* <Route path="*" element={<ErrorPage />} /> */}
-
       </Routes>
     </div>
   );
