@@ -12,12 +12,17 @@ const App = () => {
     <div className="App">
       <Navbar />
       <Routes>
-        <Route path="/" element={<CountriesList countries={countriesData} />} />
+        <Route path="/" element={<CountriesList countries={countriesData} />}>
+          <Route
+            path="/:countryId"
+            element={<CountryDetails country={countriesData} />}
+          />
+        </Route>
 
-        <Route
+        {/* <Route
           path="/:countryId"
           element={<CountryDetails country={countriesData} />}
-        />
+        /> */}
 
         {/* <Route path="*" element={<ErrorPage />} /> */}
       </Routes>

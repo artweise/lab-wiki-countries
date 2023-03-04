@@ -23,7 +23,7 @@ const CountryDetails = ({ country }) => {
   return (
     <div className="CountryCard-container d-flex flex-column p-4 align-items-center">
       <img src={flagOfCountry} alt={selectCountry.name.official} width={150} />
-      <h1>{selectCountry.name.official}</h1>
+      <h1 className="mt-3">{selectCountry.name.official}</h1>
       <div className="d-flex justify-content-between">
         <h5 className="d-inline-flex p-2">Capital</h5>
         <h5 className="d-inline-flex p-2">{selectCountry.capital}</h5>
